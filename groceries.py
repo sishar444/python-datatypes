@@ -23,6 +23,19 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-print(products)
+# print(products)
 
-# TODO: write some Python code here to produce the desired output
+# print(products[0])
+
+# print(products[0]["name"])
+
+# print(len(products))
+
+# for product in products:
+#     print(product["name"])
+
+def product_name(product):
+    return product["name"]
+sorted_products = sorted(products, key=product_name)
+for product in sorted_products:
+    print(product["name"] + " - " + "${0:.2f}".format(product["price"]))
