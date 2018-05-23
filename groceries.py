@@ -40,11 +40,13 @@ products = [
 #     print(product["name"])
 
 # Challenge 6 & 7
-# def product_name(product):
-#     return product["name"]
-# sorted_products = sorted(products, key=product_name)
-# for product in sorted_products:
-#     print(product["name"] + " - " + "${0:.2f}".format(product["price"]))
+def product_name(product):
+    return product["name"]
+
+sorted_products = sorted(products, key=product_name)
+print("--------------\n" + "THERE ARE " + str(len(sorted_products)) + " PRODUCTS:" + "\n--------------")
+for product in sorted_products:
+    print(" + " + product["name"] + " (${0:.2f})".format(product["price"]))
 
 # Challenge 8 & 9
 # dept_list = []
@@ -52,17 +54,35 @@ products = [
 #     if product["department"] not in dept_list:
 #         dept_list.append(product["department"])
 #
-# print("There are " + str(len(dept_list)) + " products")
+# print("--------------\n" + "THERE ARE " + str(len(dept_list)) + " DEPARTMENTS:" + "\n--------------")
 # for department in dept_list:
-#     print(department.title())
+#     print(" + " + department.title())
 
 # # Challenge 10
+# dept_list = []
+# for product in products:
+#     if product["department"] not in dept_list:
+#         dept_list.append(product["department"])
+#
+# print("--------------\n" + "THERE ARE " + str(len(dept_list)) + " DEPARTMENTS:" + "\n--------------")
+# sorted_dept_list = sorted(dept_list)
+# for department in sorted_dept_list:
+#     print(" + " + department.title())
+
+# Challenge 11 & 12
+def products_by_dept(department):
+    return [product for product in products if product["department"] == department]
+
 dept_list = []
 for product in products:
     if product["department"] not in dept_list:
         dept_list.append(product["department"])
 
-print("There are " + str(len(dept_list)) + " products")
+print("--------------\n" + "THERE ARE " + str(len(dept_list)) + " DEPARTMENTS:" + "\n--------------")
 sorted_dept_list = sorted(dept_list)
 for department in sorted_dept_list:
-    print(department.title())
+    str_product = "product"
+    dept_product_list = products_by_dept(department)
+    if len(dept_product_list) > 1:
+        str_product = "products"
+    print(" + " + department.title() + " (" + str(len(dept_product_list)) + " " + str_product + ")")
