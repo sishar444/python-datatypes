@@ -23,19 +23,46 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+# Challenge 1
 # print(products)
 
+# Challenge 2
 # print(products[0])
 
+# Challenge 3
 # print(products[0]["name"])
 
+# Challenge 4
 # print(len(products))
 
+# Challenge 5
 # for product in products:
 #     print(product["name"])
 
-def product_name(product):
-    return product["name"]
-sorted_products = sorted(products, key=product_name)
-for product in sorted_products:
-    print(product["name"] + " - " + "${0:.2f}".format(product["price"]))
+# Challenge 6 & 7
+# def product_name(product):
+#     return product["name"]
+# sorted_products = sorted(products, key=product_name)
+# for product in sorted_products:
+#     print(product["name"] + " - " + "${0:.2f}".format(product["price"]))
+
+# Challenge 8 & 9
+# dept_list = []
+# for product in products:
+#     if product["department"] not in dept_list:
+#         dept_list.append(product["department"])
+#
+# print("There are " + str(len(dept_list)) + " products")
+# for department in dept_list:
+#     print(department.title())
+
+# # Challenge 10
+dept_list = []
+for product in products:
+    if product["department"] not in dept_list:
+        dept_list.append(product["department"])
+
+print("There are " + str(len(dept_list)) + " products")
+sorted_dept_list = sorted(dept_list)
+for department in sorted_dept_list:
+    print(department.title())
